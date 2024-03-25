@@ -1,6 +1,10 @@
 let btn = document.querySelector("#btn");
 let price = document.querySelector("#price");
 let tax = document.querySelector("#tax");
+
+let btnTotal = document.querySelector("#btnTotal");
+let priceTotal = document.querySelector("#priceTotal");
+let taxTotal = document.querySelector("#taxTotal");
 // let tableRow = document.getElementById('myTable').getElementsByTagName('tr')[1];
 
 btn.addEventListener('click', () => {
@@ -17,22 +21,26 @@ btn.addEventListener('click', () => {
 
     document.getElementById("result4").innerText = ((parseFloat(PriceValue) * TaxValue) / 100 ) + parseFloat(PriceValue);
 
-    // newTd.textContent = PriceValue;
-    // tableRow.appendChild(newTd);
-
-    
-    // let x = document.createElement("td");
-    // x.setAttribute("value", PriceValue); 
-    // tableRow.appendChild(x);
-
-    // let a = document.createElement("td");
-    // a.setAttribute("value", TaxValue); 
-    // tableRow.appendChild(a);
-
-    // let b = document.createElement("td");
-    // b.setAttribute("value", TaxValue); 
-    // tableRow.appendChild(b);
-
+   
     
 });
 
+
+btnTotal.addEventListener('click', () => {
+    let newTd = document.createElement('td');
+
+    
+    
+    const TaxValue = taxTotal.value;
+    const PriceValue = priceTotal.value;
+    document.getElementById("result3T").innerText = TaxValue;
+    
+    document.getElementById("result4T").innerText = PriceValue;
+    
+    document.getElementById("result2T").innerText = ((parseFloat(PriceValue) / (100 + parseFloat(TaxValue) )) * 100 );
+
+    // x/(100+tax)*100
+
+   
+    
+});
