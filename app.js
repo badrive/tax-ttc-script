@@ -24,6 +24,9 @@ btn.addEventListener('click', () => {
     let newTd = document.createElement('td', [0]);
     let newTd2 = document.createElement('td', [1]);
     let newTd3 = document.createElement('td', [2]);
+    let remove = document.createElement('td', [3]);
+
+    remove.classList.add("remove");
     // let newTd4 = document.createElement('td', [3]);
     
     let text1 = type.options[type.selectedIndex].text;
@@ -45,7 +48,8 @@ btn.addEventListener('click', () => {
     // Set content for the new <td>, if needed
     newTd.textContent = text1;
     newTd2.textContent = NameValue;
-    newTd3.textContent = PriceValue
+    newTd3.textContent = PriceValue;
+    remove.textContent = "X";
     // newTd4.textContent = ((parseFloat(PriceValue) * TaxValue) / 100) + parseFloat(PriceValue);
 
     // let Totalprice = newTd4.textContent;
@@ -55,6 +59,7 @@ btn.addEventListener('click', () => {
     newTr.appendChild(newTd);
     newTr.appendChild(newTd2);
     newTr.appendChild(newTd3);
+    newTr.appendChild(remove);
     // newTr.appendChild(newTd4);
 
 
@@ -89,6 +94,9 @@ btn.addEventListener('click', () => {
 
     // document.getElementById("result3").innerText = ((parseFloat(Pricesum) * Taxsum) / 100) + parseFloat(Pricesum);
 
+    remove.addEventListener('click', ()=> {
+        newTr.remove();
+    })
 
 });
 
