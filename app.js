@@ -15,11 +15,14 @@ let body = document.body;
 
 let tableRow = document.getElementById('myTable');
 let TotalRow = document.getElementById('myTableTotal');
+let PriceValue = "";
 const Pricearr = [];
 // const Taxarr = [];
 // const Totalarr = [];
 
 btn.addEventListener('click', () => {
+    
+
     let newTr = document.createElement('tr');
     let newTd = document.createElement('td', [0]);
     let newTd2 = document.createElement('td', [1]);
@@ -28,13 +31,14 @@ btn.addEventListener('click', () => {
 
     remove.classList.add("remove");
     // let newTd4 = document.createElement('td', [3]);
-    
+
     let text1 = type.options[type.selectedIndex].text;
     // document.getElementById("result").innerText = text1;
+
+    PriceValue = price.value;
     
-    const PriceValue = price.value;
     // document.getElementById("result2").innerText = PriceValue;
-    
+
     const NameValue = namee.value;
     // alert("HELLO");
     // document.getElementById("result3").innerText = TaxValue;
@@ -44,12 +48,18 @@ btn.addEventListener('click', () => {
     // creat
 
 
-
     // Set content for the new <td>, if needed
     newTd.textContent = text1;
     newTd2.textContent = NameValue;
     newTd3.textContent = PriceValue;
     remove.textContent = "X";
+    remove.classList.add("pointer");
+
+    if (PriceValue == "") {
+        return;
+    }
+
+   
     // newTd4.textContent = ((parseFloat(PriceValue) * TaxValue) / 100) + parseFloat(PriceValue);
 
     // let Totalprice = newTd4.textContent;
@@ -63,50 +73,74 @@ btn.addEventListener('click', () => {
     // newTr.appendChild(newTd4);
 
 
+
+    // PriceValue = true;
+
     ///// final
 
-    
+
     Pricearr.push(parseFloat(PriceValue))
     let Pricesum = 0;
     for (let i = 0; i < Pricearr.length; i++) {
         Pricesum += Pricearr[i];
     }
 
-//    Taxarr.push(parseFloat(TaxValue))
-//     let Taxsum = 0;
-//     for (let i = 0; i < Taxarr.length; i++) {
-//         Taxsum += Taxarr[i];
-//     }
+    //    Taxarr.push(parseFloat(TaxValue))
+    //     let Taxsum = 0;
+    //     for (let i = 0; i < Taxarr.length; i++) {
+    //         Taxsum += Taxarr[i];
+    //     }
 
-//     Totalarr.push(Totalprice)
-//     let Totalsum = 0;
-//     for (let i = 0; i < Totalarr.length; i++) {
-//         Totalsum += Totalarr[i];
-//     }
-    
-    
+    //     Totalarr.push(Totalprice)
+    //     let Totalsum = 0;
+    //     for (let i = 0; i < Totalarr.length; i++) {
+    //         Totalsum += Totalarr[i];
+    //     }
 
 
 
-    document.getElementById("result1").innerText = Pricesum;
+
+    remove.addEventListener('click', () => {
+        // Extract the price from the third <td> element within the row
+        let priceToRemove = parseFloat(newTd3.textContent);
+        
+        // Remove the price from Pricearr
+        let index = Pricearr.indexOf(priceToRemove);
+        if (index !== -1) {
+            Pricearr.splice(index, 1);
+        }
+        
+        // Recalculate Pricesum
+        let Pricesum = Pricearr.reduce((acc, curr) => acc + curr, 0);
+        
+        // Remove the row from the table
+        newTr.remove();
+        
+        // Update the total price display
+        document.getElementById("result1").innerText = Pricesum.toFixed(2);
+    });
+
+  
+
+    document.getElementById("result1").innerText = Pricesum.toFixed(2);
+
+
+
 
     // document.getElementById("result2").innerText = (parseFloat(Taxsum) / Taxarr.length);
 
     // document.getElementById("result3").innerText = ((parseFloat(Pricesum) * Taxsum) / 100) + parseFloat(Pricesum);
 
-    remove.addEventListener('click', ()=> {
-        newTr.remove();
-    })
 
 });
 
 body.addEventListener('keydown', (event) => {
 
     if (event.key === 'Enter') {
-        
+
         event.preventDefault();
         document.getElementById("btn").click();
-      }
+    }
 
 
 
