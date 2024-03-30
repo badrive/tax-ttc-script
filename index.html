@@ -1,41 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="app.css">
 </head>
 <body>
     
-  <h1>Price with TAX </h1>
-  <br>
-    <select id="type">
-        <option value="1">Ls</option>
-        <option value="3">Thc</option>
-    </select>
 
-<br><br>
+ 
+  
+  <div class="flex_row">
+    
+    <div>
+      <select id="type">
+          <option disabled selected>Type</option>
+          <option value="1">Ls</option>
+          <option value="3">Thc</option>
+      </select>
+    </div>
+  
+      <input id="namee" type="text"  placeholder="name">
 
-    <label for="">price :
-        <input id="price" type="text"  placeholder="price">
-    </label>
+      <input id="price" type="number"  placeholder="price">
+ 
+  
+  <button id="btn">done</button>
+</div>
 
-    <label for="">tax :
-        <input id="tax" type="text"  placeholder="tax">
-    </label>
 
-    <button id="btn">done</button>
-
-    <br><br>
 
     <!-- table -->
-
-    <table border="1" id="myTable">
+<div>
+  
+</div>
+    <table class="padding"  id="myTable">
         <tr>
           <th>Type</th>
+          <th>Name</th>
           <th>Price</th>
-          <th>Tax</th>
-          <th>TOTAL</th>
+          <!-- <th>TOTAL</th> -->
         </tr>
         <!-- <tr >
           <td id="result"></td>
@@ -44,23 +50,26 @@
           <td id="result4"></td>
         </tr> -->
       </table>
+    
+   
 
-      <table border="1" id="myTableTotal">
+      <table class="padding" id="myTableTotal">
         <tr>
-          <th>Price</th>
-          <th>Tax</th>
-          <th>TOTAL</th>
+          <th>Total</th>
+          <!-- <th>Tax</th>
+          <th>TOTAL btax</th> -->
         </tr>
         <tr >
           <td id="result1"></td>
-          <td id="result2"></td>
-          <td id="result3"></td>
+          <!-- <td id="result2"></td>
+          <td id="result3"></td> -->
         </tr>
       </table>
+   
 
       <!-- //////// -->
 
-      <br><br> 
+      <!-- <br><br> 
 
       <h1>Price without TAX </h1>
 
@@ -74,26 +83,29 @@
 
     <button id="btnTotal">done</button>
 
-    <br><br>
+    <br><br> -->
 
     <!-- table -->
 
-    <table border="1" id="myTableTotal">
-        <tr>
+    <!-- <table border="1" id="myTableTotal">
+        <tr> -->
           <!-- <th>Type</th> -->
-          <th>TOTAL</th>
+          <!-- <th>TOTAL</th>
           <th>Tax</th>
           <th>Price</th>
         </tr>
-        <tr >
+        <tr > -->
           <!-- <td id="resultT"></td> -->
-          <td id="result4T"></td>
+          <!-- <td id="result4T"></td>
           <td id="result3T"></td>
           <td id="result2T"></td>
         </tr>
-      </table>
+      </table> -->
+
+     
 
 
     <script src="./app.js"></script>
 </body>
 </html>
+
