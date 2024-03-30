@@ -22,17 +22,21 @@ const Pricearr = [];
 
 btn.addEventListener('click', () => {
     
-
+    let rowIndex = tableRow.rows.length - 1;
+    
     let newTr = document.createElement('tr');
-    let newTd = document.createElement('td', [0]);
-    let newTd2 = document.createElement('td', [1]);
-    let newTd3 = document.createElement('td', [2]);
-    let remove = document.createElement('td', [3]);
+    let id = document.createElement('td', [0]);
+    let newTd = document.createElement('td', [1]);
+    let newTd2 = document.createElement('td', [2]);
+    let newTd3 = document.createElement('td', [3]);
+    let remove = document.createElement('td', [4]);
 
     remove.classList.add("remove");
     // let newTd4 = document.createElement('td', [3]);
 
     let text1 = type.options[type.selectedIndex].text;
+
+    
     // document.getElementById("result").innerText = text1;
 
     PriceValue = price.value;
@@ -49,7 +53,13 @@ btn.addEventListener('click', () => {
 
 
     // Set content for the new <td>, if needed
+    id.textContent = rowIndex;
+
     newTd.textContent = text1;
+    if (text1 == "Type") {
+        newTd.textContent = "";
+    }
+
     newTd2.textContent = NameValue;
     newTd3.textContent = PriceValue;
     remove.textContent = "X";
@@ -66,6 +76,7 @@ btn.addEventListener('click', () => {
 
     // Append the new <td> to the selected <tr>
     tableRow.appendChild(newTr);
+    newTr.appendChild(id);
     newTr.appendChild(newTd);
     newTr.appendChild(newTd2);
     newTr.appendChild(newTd3);
@@ -73,7 +84,7 @@ btn.addEventListener('click', () => {
     // newTr.appendChild(newTd4);
 
 
-
+    tableRow.insertBefore(newTr, tableRow.children[1]); // Insert as first child
     // PriceValue = true;
 
     ///// final

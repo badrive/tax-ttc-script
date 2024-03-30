@@ -35,6 +35,7 @@ select {
 }
 .padding {
     padding: 20px;
+    margin: 20px;
 }
 
 button {
@@ -56,14 +57,13 @@ button {
     gap: 10px;
 }
 
-table {
-    
-}
 
-tr,td, th {
+table,td, th {
     
     text-align: center;
     background: white;
     padding: 5px;
     border-radius: 5px;
+    border: 2px solid black;
+    border-collapse: collapse;
 }
