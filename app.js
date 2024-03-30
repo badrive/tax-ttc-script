@@ -2,6 +2,9 @@
 let btn = document.querySelector("#btn");
 let price = document.querySelector("#price");
 let namee = document.querySelector("#namee");
+let body = document.body;
+
+
 
 
 
@@ -85,6 +88,18 @@ btn.addEventListener('click', () => {
     // document.getElementById("result2").innerText = (parseFloat(Taxsum) / Taxarr.length);
 
     // document.getElementById("result3").innerText = ((parseFloat(Pricesum) * Taxsum) / 100) + parseFloat(Pricesum);
+
+
+});
+
+body.addEventListener('keydown', (event) => {
+
+    if (event.key === 'Enter') {
+        
+        event.preventDefault();
+        document.getElementById("btn").click();
+      }
+
 
 
 });
