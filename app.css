@@ -11,7 +11,7 @@ body {
     justify-items: center;
     flex-direction: column;
     gap: 10px;
-    height: 100vh;
+    
     font-family: sans-serif;
 }
 
