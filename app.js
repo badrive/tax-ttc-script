@@ -22,7 +22,7 @@ const Pricearr = [];
 
 btn.addEventListener('click', () => {
     
-    let rowIndex = tableRow.rows.length - 1;
+    let rowIndex = tableRow.rows.length;
     
     let newTr = document.createElement('tr');
     let id = document.createElement('td', [0]);
