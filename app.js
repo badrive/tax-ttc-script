@@ -145,13 +145,15 @@ btn.addEventListener('click', () => {
 
 });
 
-body.addEventListener('keydown', (event) => {
+body.addEventListener('keyup', (event) => {
 
     if (event.key === 'Enter') {
 
         event.preventDefault();
         document.getElementById("btn").click();
+        
     }
+
 
 
 
